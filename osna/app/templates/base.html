@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>{% block title %}{% endblock %}</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+    <body>
+        <div class="topnav">
+          {% if search_box %}
+            {% include 'search.html' %} 
+          {% endif %}
+          {% if page %}
+            <a class="{{'active' if page == 'games'}}" href="{{'/games'+'/'+id}}">Games Recommendation</a>
+            <a class="{{'active' if page == 'network'}}" href="{{'/network'+'/'+id}}">Social Network</a>
+            <a class="{{'active' if page == 'profile'}}" href="{{'/profile'+'/'+id}}">User Profile</a>
+          {% endif %}
+        </div>
+        {% block content %}{% endblock %}
+    </body>
+</html>
+

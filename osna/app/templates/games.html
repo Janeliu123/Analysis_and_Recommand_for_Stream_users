@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} Games Recommendation {% endblock %}
+{% block content %}
+    <div class='container_content'>
+        <b> Games Recommendation </b>
+        {% if msg == 'Success' %}
+        	<div>
+        		{% include 'game_table.html' %} 
+        	</div>
+        {% else %}
+		    <div style="color:red">
+		        {{msg}}
+		    </div>
+	    {% endif %}
+    </div>
+{% endblock %}

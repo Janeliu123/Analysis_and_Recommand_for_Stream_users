@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %} User Profile {% endblock %}
+{% block content %}
+<div class='container_content'>
+    <b> User Profile </b>
+    {% if msg == 'Success' %}
+	    <div>
+	        <img src={{content.avatarfull}} alt="Profile Photo">
+	    </div>
+	    <div>
+	    	User name: {{content.personaname}}
+	    </div>
+	    <div>
+	        Steam ID: {{content.steamid}}
+	    </div>
+	    <div>
+	        Real name: {{content.realname}}
+	    </div>
+	    <div>
+	        Location: {{content.loccountrycode}}
+	    </div>
+	    <div>
+	        Current status: {{content.personastate}}
+	    </div>
+	    <div>
+	        Last logoff: {{content.lastlogoff}}
+	    </div>
+	    <div>
+	        <br>Friends list: 
+	    </div>
+	    <div>
+	        {% if content.friends_list %}
+	        	{% for friend in content.friends_list %}
+	        		<a href="{{'/profile'+'/'+friend[0]}}">
+						<img src={{friend[1]}} alt={{friend[0]}}>
+					</a>
+	        	{% endfor %}
+	        {% else %}
+	        	Profile is not public.
+	        {% endif %}
+	    </div>
+	    <div>
+	    	<br>Owned games list: 
+	    </div>
+	    <div>
+	        {% if content.games_list %}
+	        	{% include 'game_table.html' %} 
+	        {% else %}
+	        	Profile is not public.
+	        {% endif %}
+	    </div>
+    {% else %}
+	    <div style="color:red">
+	        {{msg}}
+	    </div>
+    {% endif %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,24 @@
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Is Free</th>
+			<th>Developers</th>
+			<th>Publishers</th>
+			<th>Release Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for item in content.games_list %}
+		<tr>
+			<td>{{item.name}}</td>
+			<td>{{item.type}}</td>
+			<td>{{item.is_free}}</td>
+			<td>{{item.developers}}</td>
+			<td>{{item.publishers}}</td>
+			<td>{{item.release_date}}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
